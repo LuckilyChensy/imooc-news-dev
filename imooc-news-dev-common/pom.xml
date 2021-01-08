@@ -9,6 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--
+       imooc-news-dev-common:
+       通用工程
+       包含了一些工具类，枚举类，封装的一些公共方法以及一些第三方组件等
+    -->
     <artifactId>imooc-news-dev-common</artifactId>
 
 
