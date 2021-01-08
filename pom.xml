@@ -10,6 +10,7 @@
     <modules>
         <module>imooc-news-dev-common</module>
         <module>imooc-news-dev-model</module>
+        <module>imooc-news-dev-service-api</module>
     </modules>
 
     <packaging>pom</packaging>
