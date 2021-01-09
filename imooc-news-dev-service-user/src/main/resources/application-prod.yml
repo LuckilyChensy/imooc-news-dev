@@ -7,3 +7,6 @@ spring:
     host: 129.204.31.235
     port: 6379
     password: 123
+
+website:
+  domain-name: imooc-news.com
