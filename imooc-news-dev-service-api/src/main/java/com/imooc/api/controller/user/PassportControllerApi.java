@@ -15,6 +15,7 @@ import javax.validation.Valid;
 @Api(value = "用户注册登录", tags = {"用户注册登录的controller"})
 @RequestMapping("passport")
 public interface PassportControllerApi {
+
     /**
      * 获取短信验证码方法的接口
      */
@@ -28,5 +29,11 @@ public interface PassportControllerApi {
                                    BindingResult result,
                                    HttpServletRequest request,
                                    HttpServletResponse response);
+
+    @ApiOperation(value = "用户退出登录", notes = "用户退出登录", httpMethod = "POST")
+    @PostMapping("/logout")
+    public GraceJSONResult logout(@RequestParam String userId,
+                                  HttpServletRequest request,
+                                  HttpServletResponse response);
 
 }
