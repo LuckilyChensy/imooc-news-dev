@@ -11,5 +11,19 @@
 
     <artifactId>imooc-news-dev-service-files</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>imooc-news-dev-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 文件上传fdfs工具 -->
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>
