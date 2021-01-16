@@ -103,4 +103,16 @@ public class BaseController {
         return Integer.valueOf(countsStr);
     }
 
+    public void deleteCookie(HttpServletRequest request,
+                             HttpServletResponse response,
+                             String cookieName) {
+        try {
+            String deleteValue = URLEncoder.encode("", "utf-8");
+            setCookieValue(request, response, cookieName, deleteValue, COOKIE_DELETE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
