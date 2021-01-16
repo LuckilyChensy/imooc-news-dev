@@ -3,26 +3,17 @@ package com.imooc.user.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.imooc.api.service.BaseService;
 import com.imooc.enums.Sex;
-import com.imooc.enums.UserStatus;
-import com.imooc.exception.GraceException;
-import com.imooc.grace.result.ResponseStatusEnum;
 import com.imooc.pojo.AppUser;
 import com.imooc.pojo.Fans;
-import com.imooc.pojo.bo.UpdateUserInfoBO;
-import com.imooc.pojo.vo.PublisherVO;
 import com.imooc.pojo.vo.RegionRatioVO;
-import com.imooc.user.mapper.AppUserMapper;
-import com.imooc.user.mapper.AppUserMapperCustom;
 import com.imooc.user.mapper.FansMapper;
 import com.imooc.user.service.MyFanService;
 import com.imooc.user.service.UserService;
 import com.imooc.utils.*;
 import org.n3r.idworker.Sid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
 
