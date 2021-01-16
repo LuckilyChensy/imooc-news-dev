@@ -25,11 +25,12 @@ spring:
     multipart:
       max-file-size: 512000   # 请求的文件大小限制为500kb
       max-request-size: 512000
-
+  data:
+    mongodb:
+      uri: mongodb://root:root@129.204.31.235:27017
+      database: imooc-news
 ############################################################
-#
 # fastdfs 的配置信息
-#
 ############################################################
 fdfs:
   connect-timeout: 30
