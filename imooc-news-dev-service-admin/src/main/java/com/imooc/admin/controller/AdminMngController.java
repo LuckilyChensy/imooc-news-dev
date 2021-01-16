@@ -16,11 +16,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
+@RestController
 public class AdminMngController extends BaseController implements AdminMngControllerApi {
 
     final static Logger logger = LoggerFactory.getLogger(AdminMngController.class);
@@ -32,7 +34,9 @@ public class AdminMngController extends BaseController implements AdminMngContro
     private AdminUserService adminUserService;
 
     @Override
-    public GraceJSONResult adminLogin(AdminLoginBO adminLoginBO, HttpServletRequest request, HttpServletResponse response) {
+    public GraceJSONResult adminLogin(AdminLoginBO adminLoginBO,
+                                      HttpServletRequest request,
+                                      HttpServletResponse response) {
         // 0. TODO 验证BO中的用户名和密码不为空
 
         // 1. 查询admin用户的信息
