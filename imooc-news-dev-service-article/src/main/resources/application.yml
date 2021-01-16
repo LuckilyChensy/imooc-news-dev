@@ -39,20 +39,13 @@ spring:
     time-zone: GMT+8
   data:
     mongodb:
-      uri: mongodb://root:root@192.168.1.202:27017
+      uri: mongodb://root:root@129.204.31.235:27017
       database: imooc-news
   freemarker:
     charset: UTF-8
     content-type: text/html
     suffix: .ftl
     template-loader-path: classpath:/templates/
-  rabbitmq:
-    host: 192.168.1.204
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: imooc-news-dev
-
 ############################################################
 #
 # mybatis 配置
@@ -76,12 +69,3 @@ mapper:
 pagehelper:
   helperDialect: mysql
   supportMethodsArguments: true
-
-
-# 定义freemarker生成的html位置
-freemarker:
-  html:
-    target: /workspace/freemarker_html
-    article: /Users/leechenxiang/Desktop/apache-tomcat-9.0.22/webapps/imooc-news/portal/a
-
-
