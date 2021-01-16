@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class FriendLinkController extends BaseController implements FriendLinkControllerApi {
@@ -44,16 +45,18 @@ public class FriendLinkController extends BaseController implements FriendLinkCo
 
     @Override
     public GraceJSONResult getFriendLinkList() {
-        return null;
+        return GraceJSONResult.ok(friendLinkService.queryAllFriendLinkList());
     }
 
     @Override
     public GraceJSONResult delete(String linkId) {
-        return null;
+        friendLinkService.delete(linkId);
+        return GraceJSONResult.ok();
     }
 
     @Override
     public GraceJSONResult queryPortalAllFriendLinkList() {
-        return null;
+        List<FriendLinkMO> list = friendLinkService.queryPortalAllFriendLinkList();
+        return GraceJSONResult.ok(list);
     }
 }
