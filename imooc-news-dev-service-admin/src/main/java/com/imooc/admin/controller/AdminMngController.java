@@ -88,6 +88,7 @@ public class AdminMngController extends BaseController implements AdminMngContro
 
         // 4. 调用service存入admin信息
         adminUserService.createAdminUser(newAdminBO);
+
         return GraceJSONResult.ok();
     }
 
@@ -109,6 +110,7 @@ public class AdminMngController extends BaseController implements AdminMngContro
 
     @Override
     public GraceJSONResult adminLogout(String adminId, HttpServletRequest request, HttpServletResponse response) {
+
         // 从redis中删除admin的会话token
         redis.del(REDIS_ADMIN_TOKEN + ":" + adminId);
 

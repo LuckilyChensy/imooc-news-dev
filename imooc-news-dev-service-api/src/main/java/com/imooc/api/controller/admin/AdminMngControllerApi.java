@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("adminMng")
 public interface AdminMngControllerApi {
 
-    @ApiOperation(value = "hello方法的接口", notes = "hello方法的接口", httpMethod = "POST")
+    @ApiOperation(value = "adminLogin方法的接口", notes = "adminLogin方法的接口", httpMethod = "POST")
     @PostMapping("/adminLogin")
     public GraceJSONResult adminLogin(@RequestBody AdminLoginBO adminLoginBO,
                                       HttpServletRequest request,
