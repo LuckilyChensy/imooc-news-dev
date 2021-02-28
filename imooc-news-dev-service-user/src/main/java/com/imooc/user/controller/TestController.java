@@ -21,14 +21,11 @@ public class TestController implements TestControllerApi {
     @Override
     public Object test(){
 
-        logger.debug("debug: test spring framework ");
-        logger.info("info: test spring framework ");
-        logger.warn("warn: test spring framework ");
-        logger.error("error: test spring framework ");
-
-//        return "<h3> test spring framework </h3>";
-//        return IMOOCJSONResult.ok();
-          return IMOOCJSONResult.ok("hello");
+        logger.debug("DEBUG: test spring framework ");
+        logger.info("INFO: test spring framework ");
+        logger.warn("WARN: test spring framework ");
+        logger.error("ERROR: test spring framework ");
+        return IMOOCJSONResult.ok("hello");
 
     }
 
