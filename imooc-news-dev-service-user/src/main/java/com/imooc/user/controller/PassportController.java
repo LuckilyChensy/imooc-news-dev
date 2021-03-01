@@ -9,7 +9,6 @@ import com.imooc.pojo.AppUser;
 import com.imooc.pojo.bo.RegistLoginBO;
 import com.imooc.user.service.UserService;
 import com.imooc.utils.IPUtil;
-import com.imooc.utils.JsonUtils;
 import com.imooc.utils.SMSUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -46,7 +45,7 @@ public class PassportController extends BaseController implements PassportContro
 
         // 生成随机验证码并且发送短信
         String random = (int)((Math.random() * 9 + 1) * 100000) + "";
-//        smsUtils.sendSMS(MyInfo.getMobile(), random);
+//      smsUtils.sendSMS(MyInfo.getMobile(), random);   注释掉阿里云短信服务
 
         // 把验证码存入redis，用于后续进行验证
         redis.set(MOBILE_SMSCODE + ":" + mobile, random, 30 * 60);
@@ -63,11 +62,11 @@ public class PassportController extends BaseController implements PassportContro
             Map<String,String> map = getErrors(result);
             return GraceJSONResult.errorMap(map);
         }
-
+        // 从前端界面传回来的数据
         String mobile = registLoginBO.getMobile();
         String smsCode = registLoginBO.getSmsCode();
 
-        // 1. 校验验证码是否匹配
+        // 暂存在 redis 中的数据
         String redisSMSCode = redis.get(MOBILE_SMSCODE + ":" + mobile);
 
         if (StringUtils.isBlank(redisSMSCode) || !redisSMSCode.equalsIgnoreCase(smsCode)) {
