@@ -18,20 +18,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Swagger2 {
 
-    //    http://localhost:8088/swagger-ui.html     原路径
-    //    http://localhost:8088/doc.html            新路径
-    //    http://user.imoocnews.com:8003/swagger-ui.html
-
     // 配置swagger2核心配置 docket
     @Bean
     public Docket createRestApi() {
         Predicate<RequestHandler> adminPredicate = RequestHandlerSelectors.basePackage("com.imooc.admin.controller");
-//        Predicate<RequestHandler> articlePredicate = RequestHandlerSelectors.basePackage("com.imooc.article.controller");
+//      Predicate<RequestHandler> articlePredicate = RequestHandlerSelectors.basePackage("com.imooc.article.controller");
         Predicate<RequestHandler> userPredicate = RequestHandlerSelectors.basePackage("com.imooc.user.controller");
         Predicate<RequestHandler> filesPredicate = RequestHandlerSelectors.basePackage("com.imooc.files.controller");
 
-        return new Docket(DocumentationType.SWAGGER_2)  // 指定api类型为swagger2
-                .apiInfo(apiInfo())                 // 用于定义api文档汇总信息
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
                 .select()
                 .apis(Predicates.or(userPredicate))
 //                .apis(Predicates.or(userPredicate, adminPredicate, filesPredicate))
