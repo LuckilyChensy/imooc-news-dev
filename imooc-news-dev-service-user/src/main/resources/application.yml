@@ -35,7 +35,7 @@ spring:
     time-zone: GMT+8
   data:
     mongodb:
-      uri: mongodb://root:root@129.204.31.235:27017
+      uri: mongodb://root:root@服务器IP:27017
       database: imooc-news
 
 ############################################################
