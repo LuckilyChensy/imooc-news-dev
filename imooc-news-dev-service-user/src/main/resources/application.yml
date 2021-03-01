@@ -3,10 +3,10 @@
 # web访问端口号  约定：8003
 ############################################################
 server:
-#  port: 8003
+# port: 8003
   tomcat:
     uri-encoding: UTF-8
-    max-swallow-size: -1 # tomcat默认大小2M，超过2M的文件不会被捕获，需要调整此处大小为100MB或者-1即可
+    max-swallow-size: -1 # tomcat默认大小2M,超过2M的文件不会被捕获, -1 表示禁用
 ############################################################
 # 配置项目信息
 ############################################################
@@ -37,14 +37,15 @@ spring:
     mongodb:
       uri: mongodb://root:root@129.204.31.235:27017
       database: imooc-news
+
 ############################################################
 #
 # mybatis 配置
 #
 ############################################################
 mybatis:
-  type-aliases-package: com.imooc.pojo          # 所有POJO类所在包路径
-  mapper-locations: classpath:mapper/*.xml      # mapper映射文件
+  type-aliases-package: com.imooc.pojo          # 所有 POJO 类所在包路径,该配置使得容器启动时会自动识别该包下的实体
+  mapper-locations: classpath:mapper/*.xml      # mapper映射文件,该配置使得容器启动时会自动扫描这些配置文件
 
 ############################################################
 #
@@ -55,7 +56,7 @@ mybatis:
 mapper:
   mappers: com.imooc.my.mapper.MyMapper
   not-empty: false    # 在进行数据库操作的的时候，判断表达式 username != null, 是否追加 username != ''
-  identity: MYSQL
+  identity: MYSQL     # 数据库方言
 # 分页插件配置
 pagehelper:
   helperDialect: mysql
