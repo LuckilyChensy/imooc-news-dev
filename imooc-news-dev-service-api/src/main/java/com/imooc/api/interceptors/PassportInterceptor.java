@@ -30,7 +30,7 @@ public class PassportInterceptor implements HandlerInterceptor {
 
         if (keyIsExist) {
             GraceException.display(ResponseStatusEnum.SMS_NEED_WAIT_ERROR);
-            logger.info("短信发送频率太大！");
+            logger.info(" 短信发送频率太高 ！！！");
             return false;
         }
 
@@ -46,4 +46,5 @@ public class PassportInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
+
 }
