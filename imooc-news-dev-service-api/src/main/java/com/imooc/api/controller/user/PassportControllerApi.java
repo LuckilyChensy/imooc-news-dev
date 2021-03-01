@@ -16,14 +16,11 @@ import javax.validation.Valid;
 @RequestMapping("passport")
 public interface PassportControllerApi {
 
-    /**
-     * 获取短信验证码方法的接口
-     */
-    @ApiOperation(value = "获取短信验证码方法的接口", notes = "获取短信验证码方法的接口", httpMethod = "GET")
+    @ApiOperation(value = "获取短信验证码", notes = "获取短信验证码", httpMethod = "GET")
     @GetMapping("/getSMSCode")
     public GraceJSONResult getSMSCode(@RequestParam String mobile, HttpServletRequest request);
 
-    @ApiOperation(value = "一键注册登录接口", notes = "一键注册登录接口", httpMethod = "POST")
+    @ApiOperation(value = "一键注册登录", notes = "一键注册登录", httpMethod = "POST")
     @PostMapping("/doLogin")
     public GraceJSONResult doLogin(@RequestBody @Valid RegistLoginBO registLoginBO,
                                    BindingResult result,
