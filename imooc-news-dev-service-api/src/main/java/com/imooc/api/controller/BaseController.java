@@ -50,19 +50,27 @@ public class BaseController {
     public static final Integer COMMON_PAGE_SIZE = 10;
 
     /**
-     * 获取BO中的错误信息
+     * 获取 BO 中的错误信息
      */
     public Map<String, String> getErrors(BindingResult result) {
+
         Map<String, String> map = new HashMap<>();
         List<FieldError> errorList = result.getFieldErrors();
+
         for (FieldError error : errorList) {
+
             // 发送验证错误的时候所对应的某个属性
             String field = error.getField();
+
             // 验证的错误消息
             String msg = error.getDefaultMessage();
+
             map.put(field, msg);
+
         }
+
         return map;
+
     }
 
     public void setCookie(HttpServletRequest request,
