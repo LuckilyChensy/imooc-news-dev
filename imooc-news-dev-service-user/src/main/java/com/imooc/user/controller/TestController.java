@@ -3,6 +3,7 @@ package com.imooc.user.controller;
 import com.imooc.api.controller.user.TestControllerApi;
 import com.imooc.grace.result.GraceJSONResult;
 import com.imooc.grace.result.IMOOCJSONResult;
+import com.imooc.grace.result.ResponseStatusEnum;
 import com.imooc.utils.RedisOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,11 +22,13 @@ public class TestController implements TestControllerApi {
     @Override
     public Object test(){
 
-        logger.debug("DEBUG: test spring framework ");
-        logger.info("INFO: test spring framework ");
-        logger.warn("WARN: test spring framework ");
-        logger.error("ERROR: test spring framework ");
-        return IMOOCJSONResult.ok("hello");
+        logger.debug("DEBUG: Test Spring Framework ");
+        logger.info( "INFO: Test Spring Framework ");
+        logger.warn( "WARN: Test Spring Framework ");
+        logger.error("ERROR: Test Spring Framework ");
+        logger.trace("TRACE: Test Spring Framework ");
+
+        return GraceJSONResult.errorCustom(ResponseStatusEnum.NO_AUTH);
 
     }
 
