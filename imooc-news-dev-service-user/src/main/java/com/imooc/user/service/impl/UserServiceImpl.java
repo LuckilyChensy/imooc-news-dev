@@ -50,10 +50,11 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public AppUser createUser(String mobile) {
+
         /**
          * 互联网项目都要考虑可扩展性
          * 如果未来的业务激增，那么就需要分库分表
-         * 那么数据库表主键id必须保证全局（全库）唯一，不得重复
+         * 那么数据库表主键 id 必须保证全局（全库）唯一，不得重复
          */
         String userId = sid.nextShort();
 
@@ -75,6 +76,7 @@ public class UserServiceImpl implements UserService {
         appUserMapper.insert(user);
 
         return user;
+
     }
 
     @Override
