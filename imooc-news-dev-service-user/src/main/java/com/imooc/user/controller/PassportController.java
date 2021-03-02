@@ -75,8 +75,9 @@ public class PassportController extends BaseController implements PassportContro
 
         // 2. 查询数据库，判断该用户注册
         AppUser user = userService.queryMobileIsExist(mobile);
+
         if (user != null && user.getActiveStatus() == UserStatus.FROZEN.type) {
-            // 如果用户不为空，并且状态为冻结，则直接抛出异常，禁止登录
+            // 如果用户不为空,并且状态为冻结,则直接抛出异常,禁止登录
             return GraceJSONResult.errorCustom(ResponseStatusEnum.USER_FROZEN);
         } else if (user == null) {
             // 如果用户没有注册过，则为null，需要注册信息入库
@@ -89,7 +90,7 @@ public class PassportController extends BaseController implements PassportContro
             // 保存token到redis
             String uToken = UUID.randomUUID().toString();
             redis.set(REDIS_USER_TOKEN + ":" + user.getId(), uToken);
-//            redis.set(REDIS_USER_INFO + ":" + user.getId(), JsonUtils.objectToJson(user));
+//          redis.set(REDIS_USER_INFO + ":" + user.getId(), JsonUtils.objectToJson(user));
 
             // 保存用户id和token到cookie中
             setCookie(request, response, "utoken", uToken, COOKIE_MONTH);
